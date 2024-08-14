@@ -3,10 +3,6 @@ import {
   AdminInitiateAuthCommand,
   AdminInitiateAuthCommandInput,
   AdminInitiateAuthCommandOutput,
-  AdminSetUserPasswordCommand,
-  AdminSetUserPasswordCommandInput,
-  SignUpCommand,
-  ConfirmSignUpCommand,
 } from "@aws-sdk/client-cognito-identity-provider";
 
 import config from "./config.json";
@@ -40,18 +36,6 @@ export const signIn = async (username: string, password: string) => {
     console.log(`response: `, response);
     console.log(`ChallengeName: `, response.ChallengeName);
     console.log(`ChallengeParameters: `, response.ChallengeParameters);
-
-    if (response.ChallengeName === "NEW_PASSWORD_REQUIRED") {
-      const params: AdminSetUserPasswordCommandInput = {
-        UserPoolId: config.userPoolId,
-        Username: response.ChallengeParameters.USER_ID_FOR_SRP,
-        Password: password,
-        Permanent: true,
-      };
-      const command = new AdminSetUserPasswordCommand(params);
-      const response2 = await cognitoClient.send(command);
-      console.log(`response2: `, response2);
-    }
 
     if (response.ChallengeName === undefined) {
       const { AuthenticationResult } = response;
