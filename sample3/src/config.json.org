@@ -1,0 +1,9 @@
+{
+    "region": "リージョンIDを設定する",
+    "userPoolId": "cotnitoのユーザープールID",
+    "clientId": "cognitoのクライアントID",
+    "credentials": {
+        "accessKeyId": "ローカル用に発行したアクセスキー",
+        "secretAccessKey": "ローカル用に発行したシークレットキー"
+    }
+}
