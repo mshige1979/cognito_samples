@@ -12,13 +12,13 @@ npx tsx src/admin_password_reset.ts xxxxxxxx-cccc-bbbb-aaaa-zzzzzzzzzzz
 ## ChangePasswordCommand
 
 ログインユーザーのパスワードを変更する
-ぱらメータは現在のパスワード、新しいパスワード、アクセストークンが必要
+パラメータは現在のパスワード、新しいパスワード、アクセストークンが必要
 
 ```
 npx tsx src/change_password.ts P@ssword999 newP@ssword999 xxxxxxxxx....
 ```
 
-## InitiateAuthCommand の実験サンプル
+## InitiateAuthCommand
 
 ユーザーとパスワードでログインを行う
 管理側のログイン機能としては`AdminInitiateAuthCommand`が存在する。
